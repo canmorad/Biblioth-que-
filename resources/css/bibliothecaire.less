@@ -18,7 +18,8 @@ h1, h2 {
     color: @primary-color;
 }
 
-.add-section, .list-section {
+.add-section,
+.list-section {
     background: white;
     padding: 20px;
     margin-bottom: 30px;
@@ -26,18 +27,54 @@ h1, h2 {
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-form input, form select, form button {
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input,
+.form-group select {
     padding: 10px;
-    margin: 5px;
     border-radius: 5px;
     border: 1px solid #ccc;
 }
 
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.error {
+    color: red;
+    font-size: 0.85em;
+    margin-top: 5px;
+}
+
 form button {
+    align-self: flex-start;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
     background: @primary-color;
     color: white;
-    border: none;
     cursor: pointer;
+    font-weight: bold;
 }
 
 form button:hover {
@@ -49,7 +86,8 @@ table {
     border-collapse: collapse;
 }
 
-table th, table td {
+table th,
+table td {
     border: 1px solid #ddd;
     padding: 10px;
     text-align: left;
@@ -58,4 +96,8 @@ table th, table td {
 table th {
     background: @primary-color;
     color: white;
+}
+
+table tr:nth-child(even) {
+    background: #fafafa;
 }

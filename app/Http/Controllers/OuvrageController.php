@@ -5,17 +5,23 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Ouvrage;
 use App\Models\Exemplaire;
+use Illuminate\Support\Facades\Hash;
+
 class OuvrageController extends Controller
 {
     // Ajouter un ouvrage
     public function store(Request $request)
     {
-        $request->validate([
+        $formFields = $request->validate([
             'titre' => 'required',
             'auteur' => 'required',
             'categorie_id' => 'required',
             'nbrexemplaires' => 'required|integer'
         ]);
+
+        // $titre = $formFields['titre'];
+        // dd(Hash::make($titre));
+        // // dd($formFields);
 
         $ouvrage = Ouvrage::create($request->all());
 
